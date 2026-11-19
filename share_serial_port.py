@@ -6,7 +6,7 @@
 For a radio on a machine other than the one running the tools: plug the radio's cable in there, run this, and point
 the tools on the other machine at it, for example
 
-    python3 tools/serial_rfc2217_relay.py COM3 7001                    (the machine with the radio)
+    python3 share_serial_port.py COM3 7001                    (the machine with the radio)
     python3 tools/rfoundry_debug.py --port rfc2217://HOST:7001 version
     python3 -m pytest tests/hil --radio-port rfc2217://HOST:7001
 
@@ -67,7 +67,7 @@ def serve(dev, tcp_port):
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
-        sys.exit("usage: serial_rfc2217_relay.py DEVICE TCP_PORT   (DEVICE: COM3, /dev/ttyUSB0)")
+        sys.exit("usage: share_serial_port.py DEVICE TCP_PORT   (DEVICE: COM3, /dev/ttyUSB0)")
     try:
         serve(sys.argv[1], int(sys.argv[2]))
     except KeyboardInterrupt:
